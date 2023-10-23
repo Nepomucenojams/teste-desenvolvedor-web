@@ -1,0 +1,31 @@
+body{
+    background-color: #f8f9fa;
+}
+
+.td_customizada{
+    font-size: 19px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.td_customizada span{
+    cursor: pointer;
+    color: #eb7d00;
+}
+
+.mais_endereco{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    color: #686868;
+    cursor: pointer;
+    font-size: 1.2em
+}
+.fa-circle-plus.mais_endereco{
+    font-size: 100px;
+}
+
+.mais_endereco:hover{
+    color: #2c2c2c;
+}

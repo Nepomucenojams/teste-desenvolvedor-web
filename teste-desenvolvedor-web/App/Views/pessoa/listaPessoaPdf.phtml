@@ -1,0 +1,67 @@
+<?php
+
+$html = "
+		<style>
+		.demo {
+			border:1px sólido #C0C0C0;
+			border-collapse:colapso;
+			padding:5px;
+		}
+		.demo th {
+			border:1px sólido #C0C0C0;
+			padding:5px;
+			background:#F0F0F0;
+		}
+		.demo td {
+			border:1px sólido #C0C0C0;
+			padding:5px;
+		}
+		</style>
+		<table class='demo'>
+			<caption>
+			<h1>Lista Pessoas</h1>
+			</caption>
+			<thead>
+			<tr>
+				<th>Nome Completo</th>
+				<th>Telefone</th>
+				<th>CPF</th>
+				<th>Data Nascimento</th>
+				<th>CEP</th>
+				<th>Logadouro</th>
+				<th>Localidade</th>
+				<th>Bairro</th>
+				<th>UF</th>
+				<th>Complemento</th>
+			</tr>
+			</thead>
+			<tbody>";
+		foreach ($dadosPessoa as $pessoa => $value) {
+			$nome_completo = $value['nome_completo'];
+			$telefone = $value['telefone'] ;
+			$cpf = $value['cpf'] ;
+			$data_nascimento = $value['data_nascimento'] ;
+			$cep = $value['cep'];
+			$logadouro = $value['logadouro'];
+			$localidade = $value['localidade'] ;
+			$bairro = $value['bairro'] ;
+			$uf = $value['uf'] ;
+			$complemento = $value['complemento'];
+		$html .="	
+			<tr>
+				<td>$nome_completo</td>
+				<td>$telefone</td>
+				<td>$cpf</td>
+				<td>$data_nascimento</td>
+				<td>$cep</td>
+				<td>$logadouro</td>
+				<td>$localidade</td>
+				<td>$bairro</td>
+				<td>$uf</td>
+				<td>$complemento</td>
+			</tr>";
+		}
+		$html .="
+			</tbody>
+		</table>
+		";

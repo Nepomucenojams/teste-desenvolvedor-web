@@ -1,0 +1,118 @@
+<div class='container mt-5 bg-white rounded border'> 
+    <h1>Cadastro de Pessoa</h1>
+    <hr>
+    <section>
+        <div class="row">
+            <div class="col-4">
+                <a class="btn btn-outline-primary" href="/listarPessoa">
+                    <i class="fa-solid fa-arrow-right fa-rotate-180"></i>
+                    Voltar
+                </a>
+            </div>
+            <div class="col-4 text-center"></div>
+            <div class="col-4 text-end"></div>
+        </div>
+    </section>
+
+    <div>
+        <form action="" id="formPessoa">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="codigo" class="form-label">Codigo</label>
+                        <input type="text" value="" disabled readonly class="form-control" maxlength="120" id="codigo" placeholder="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" required class="form-control" maxlength="120" id="nome" placeholder="">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text"  data-mask="(00) 0 0000-0000" data-mask-selectonfocus="true" required class="form-control" id="telefone" placeholder="Digite seu telefone">
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input type="text" required data-mask="000.000.000-00" data-mask-selectonfocus="true" maxlength="14" class="form-control" id="cpf" placeholder="Digite seu CPF">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="data-nascimento" class="form-label">Data de Nascimento</label>
+                        <input type="date" required class="form-control" id="datanascimento">
+                    </div>
+                </div>
+            </div>
+            <div class="text-end">
+                <button class="btn btn-primary " onclick="">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php
+    include_once ('cadastro_endereco.phtml')
+?>
+
+<script>
+
+    $(document).ready(function(){
+        $('#telefone').mask('(00) 0 0000-0000');
+        $('#cpf').mask('000.000.000-00');
+    });
+    
+    //
+    document.querySelector('#formPessoa').addEventListener('submit', submitAjaxPessoa);
+
+    function submitAjaxPessoa(e){
+    e.preventDefault();
+    let codigo         = $('#codigo')[0].value
+    let nome           = $('#nome')[0].value
+    let telefone       = $('#telefone')[0].value
+    let cpf            = $('#cpf')[0].value
+    let dataNascimento = $('#datanascimento')[0].value
+
+    $.ajax({
+     url : "/cadastrarPessoa",
+     type : 'post',
+     data : {
+          codigo         : codigo ,
+          nome           : nome,
+          telefone       : telefone,
+          cpf            : cpf,
+          dataNascimento : dataNascimento
+     },
+     beforeSend : function(){
+          //$("#resultado").html("ENVIANDO...");
+     }
+    })
+    .done(function(msg){
+        console.log(msg);
+        $('#codigo')[0].value = msg
+        $('.btn_primeiro_endereço').removeClass('disabled')
+        $('#btn_adicionar_endereco').removeClass('d-none')
+        //mensagem de dados salvo com sucesso
+        Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: 'Pessoa cadastrada',
+        showConfirmButton: false,
+        timer: 1500
+        })
+    })
+    .fail(function(jqXHR, textStatus, msg){
+        alert(msg);
+    });
+   
+    }
+
+</script>

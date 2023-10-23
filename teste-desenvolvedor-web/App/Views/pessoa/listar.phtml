@@ -1,0 +1,115 @@
+<div class='container mt-5 bg-white rounded border'>
+	<h1>Lista de Pessoa</h1>
+	<hr>
+	<section>
+		<div class="row">
+			<div class="col-4">
+				<a class="btn btn-success" href="/cadastroPessoa">Novo</a>
+			</div>
+			<div class="col-4 text-center">
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Exportar
+					</button>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="/listarPessoaPdf">PDF</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-4 text-end">
+				<button class="btn btn-danger" onclick="fc_excluir()">Excluir</button>
+			</div>
+		</div>
+
+
+	</section>
+	<div class="table-responsive">
+		<table class='table table-hover'>
+			<tr>
+				<th class="td_customizada">
+					<div class="form-check">
+						<input class="form-check-input" onclick="marcaTodos()" type="checkbox" value="" id="check_todos">
+					</div>
+				</th>
+				<th class="td_customizada">#</th>
+				<th>Nome Completo</th>
+				<th>Telefone</th>
+				<th>CPF</th>
+				<th>Data Nascimento</th>
+				<th>CEP</th>
+				<th>Logadouro </th>
+				<th>Localidade </th>
+				<th>Bairro </th>
+				<th>UF</th>
+				<th>Complemento </th>
+			</tr>
+			<?php
+			foreach ($this->view->dados as $indice => $pessoa) {
+			?>
+				<tr>
+
+					<td class="td_customizada">
+						<div class="form-check">
+
+							<input class="form-check-input checkbox_individual" type="checkbox" value="<?= $pessoa['id_pessoa'] ?>" id="check_p_<?= $pessoa['id_pessoa'] ?>">
+
+						</div>
+					</td>
+					<td class="td_customizada">
+						<a href="/editarPessoa?codigo=<?= $pessoa['id_pessoa'] ?>">
+							<span><i class="fa-solid fa-pen-to-square"></i></span>
+					</td>
+					</a>
+					<td><?= $pessoa['nome_completo'] ?></td>
+					<td><?= $pessoa['telefone'] ?></td>
+					<td><?= $pessoa['cpf'] ?></td>
+					<td><?= $pessoa['data_nascimento'] ?></td>
+					<td><?= $pessoa['cep'] ?></td>
+					<td><?= $pessoa['logadouro'] ?></td>
+					<td><?= $pessoa['localidade'] ?></td>
+					<td><?= $pessoa['bairro'] ?></td>
+					<td><?= $pessoa['uf'] ?></td>
+					<td><?= $pessoa['complemento']  ?> </td>
+				</tr>
+			<?php
+			}
+			?>
+		</table>
+	</div>
+</div>
+
+<script>
+
+$(document).ready(function() {
+
+	$('.checkbox_individual').on('click', function() {
+        // Verifica se algum checkbox individual foi desmarcado
+        if (!this.checked) {
+            $('#check_todos').prop('checked', false);
+        }
+    });
+
+});
+
+function marcaTodos() {
+	if ($('#check_todos').prop('checked')) {
+		$('.checkbox_individual').prop('checked', true);
+    } else {
+		$('.checkbox_individual').prop('checked', false);
+    }
+}
+
+function fc_excluir() {
+
+	let valoresMarcados = [];  
+    $('.checkbox_individual:checked').each(function() {
+        valoresMarcados.push($(this).val()); // Coleta o valor do checkbox marcado
+    });
+	let stringSeparadaPorVirgulas = valoresMarcados.join(', ');
+    
+	
+	window.location.href = "/excluirInPessoa?codigo="+stringSeparadaPorVirgulas;
+
+}
+
+</script>

@@ -1,0 +1,52 @@
+<div class='container mt-5 bg-white rounded border'> 
+  <span class="d-none" id="uf"> <?= $this->view->ufsString ?></span>
+  <span class="d-none" id="quantidade"> <?= $this->view->quantidadesString ?></span>
+    <h1>Dashboard</h1>
+    <hr>
+
+    <div class="row justify-content-md-center text-center">
+
+      <div class="col-md-auto">
+        <h4>Usuarios por estado</h4>
+        <div id="chart" class="">
+            <div id="responsive-chart"></div>
+        </div>
+      </div>
+      
+    </div>
+    
+</div>
+
+<script>
+    let uf =$('#uf')[0].innerHTML
+    uf = uf.split(',')
+    console.log(uf);
+    let quantidade =$('#quantidade')[0].innerHTML
+    quantidade = [quantidade.split(',')]
+    var quantidadeInteira = quantidade[0].map(function(valor) {
+      return parseInt(valor, 10);
+    });
+    console.log(quantidade);
+    var options = {
+          series: quantidadeInteira,
+          chart: {
+          width: 380,
+          type: 'pie',
+        },
+        labels: uf,
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+</script>

@@ -1,0 +1,323 @@
+<div class="container bg-white mt-4 rounded border">
+    <form id="form_endereco_1">
+        <div>
+            <p class="bg-secondary-subtle text-center fw-medium">Endereço</p>
+        </div>
+        <div class="d-none">
+            <input type="number" value="" class="form-control" id="id_endereco_1">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="nome-endereco" class="form-label">Nome do Endereço</label>
+                    <input type="text" required maxlength="60" class="form-control" id="nome-endereco_1" placeholder="Ex: Minha casa... trabalho... Mae...">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" required data-mask="00000-000" onkeyup="validaCep(this)" data-mask-selectonfocus="true"  class="form-control" id="cep_1" placeholder="Digite seu CEP">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="numero" class="form-label">Numero</label>
+                    <input type="text" required maxlength="10" class="form-control" id="numero_1" placeholder="Digite o numero do seu lote">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="logradouro" class="form-label">Logradouro</label>
+                    <input type="text" required maxlength="120" class="form-control" id="logradouro_1" placeholder="Digite seu logradouro">
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="localidade" class="form-label">Localidade</label>
+                    <input type="text" required maxlength="120" class="form-control" id="localidade_1" name="localidade" placeholder="Digite sua localidade">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text"  required maxlength="80" class="form-control" id="bairro_1" name="bairro" placeholder="Digite seu bairro">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="uf" class="form-label">UF</label>
+                    <input type="text" required class="form-control" id="uf_1" maxlength="2" name="uf" placeholder="Digite sua UF">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="complemento" class="form-label">Complemento</label>
+            <input type="text" class="form-control" id="complemento_1" placeholder="Digite o complemento (se aplicável)">
+        </div>
+        <div class="text-end">
+            <button class="btn btn-primary btn_primeiro_endereço disabled" id="btn_primeiro_endereço_1">Salvar</button>
+        </div>
+    </form>
+</div>
+
+<div class="d-none" id="endereco_2">
+    <div class="container bg-white mt-4 rounded border">
+        <form id="form_endereco_2">
+            <div>
+                <p class="bg-secondary-subtle text-center fw-medium">Endereço</p>
+            </div>
+            <div class="d-none">
+                <input type="number" class="form-control" id="id_endereco_2">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="nome-endereco" class="form-label">Nome do Endereço</label>
+                        <input type="text" maxlength="60" required class="form-control" id="nome-endereco_2" placeholder="Ex: Minha casa... trabalho... Mae...">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text"  required data-mask="00000-000" onkeyup="validaCep(this)" data-mask-selectonfocus="true"  class="form-control" id="cep_2" placeholder="Digite seu CEP">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="numero" class="form-label">Numero</label>
+                        <input type="text" required maxlength="10" class="form-control" id="numero_2" placeholder="Digite o numero do seu lote">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="logradouro" class="form-label">Logradouro</label>
+                        <input type="text" required maxlength="120" class="form-control" id="logradouro_2" placeholder="Digite seu logradouro">
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="localidade" class="form-label">Localidade</label>
+                        <input type="text" required maxlength="120" class="form-control" id="localidade_2" name="localidade" placeholder="Digite sua localidade">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="bairro" class="form-label">Bairro</label>
+                        <input type="text" required maxlength="80" class="form-control" id="bairro_2" name="bairro" placeholder="Digite seu bairro">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="uf" class="form-label">UF</label>
+                        <input type="text" required class="form-control" id="uf_2" maxlength="2" name="uf" placeholder="Digite sua UF">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="complemento" class="form-label">Complemento</label>
+                <input type="text"  class="form-control" id="complemento_2" placeholder="Digite o complemento (se aplicável)">
+            </div>
+            <div class="text-end">
+                <button class="btn btn-primary" id="btn_primeiro_endereço">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="d-none" id="endereco_3">
+    <div class="container bg-white mt-4 rounded border">
+        <form id="form_endereco_3">
+            <div>
+                <p class="bg-secondary-subtle text-center fw-medium">Endereço</p>
+            </div>
+            <div class="d-none">
+                <input type="number" class="form-control" id="id_endereco_3">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="nome-endereco" class="form-label">Nome do Endereço</label>
+                        <input type="text" maxlength="60" class="form-control" id="nome-endereco_3" placeholder="Ex: Minha casa... trabalho... Mae...">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" required data-mask="00000-000" onkeyup="validaCep(this)" data-mask-selectonfocus="true"  class="form-control" id="cep_3" placeholder="Digite seu CEP">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="numero" class="form-label">Numero</label>
+                        <input type="text" required maxlength="10" class="form-control" id="numero_3" placeholder="Digite o numero do seu lote">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="logradouro" class="form-label">Logradouro</label>
+                        <input type="text" required maxlength="120" class="form-control" id="logradouro_3" placeholder="Digite seu logradouro">
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="localidade" class="form-label">Localidade</label>
+                        <input type="text" required maxlength="120" class="form-control" id="localidade_3" name="localidade" placeholder="Digite sua localidade">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="bairro" class="form-label">Bairro</label>
+                        <input type="text" required maxlength="80" class="form-control" id="bairro_3" name="bairro" placeholder="Digite seu bairro">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="uf" class="form-label">UF</label>
+                        <input type="text" required class="form-control" id="uf_3" maxlength="2" name="uf" placeholder="Digite sua UF">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="complemento" class="form-label">Complemento</label>
+                <input type="text"  class="form-control" id="complemento_3" placeholder="Digite o complemento (se aplicável)">
+            </div>
+            <div class="text-end">
+                <button class="btn btn-primary" id="btn_primeiro_endereço">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3 d-none" id="btn_adicionar_endereco">
+    <i class="fa-solid fa-circle-plus mais_endereco" onclick="novoEndereco()"></i>
+    <p class="mais_endereco" onclick="novoEndereco()">Cadastrar outro endereço</p>
+</div>
+
+<script>
+
+    $(document).ready(function(){
+        $('#cep_1').mask('00000-000');
+        $('#cep_2').mask('00000-000');
+        $('#cep_3').mask('00000-000');
+    });
+
+    function validaCep(e) {
+        
+        let id = e.id.substr(-1);
+        let cep = $('#cep_'+id)[0].value
+        if (cep.length == 9) {
+            var settings = {
+            "url": `https://viacep.com.br/ws/${cep}/json/`,
+            "method": "GET",
+            "timeout": 0,
+            };
+
+            $.ajax(settings).done(function(response) {
+                if (response.erro) {  
+                }else{
+
+                    $('#logradouro_' +id)[0].value = response.logradouro
+                    $('#uf_' +id)[0].value = response.uf
+                    $('#bairro_'+id)[0].value = response.bairro
+                    $('#localidade_'+id)[0].value = response.localidade
+
+                }
+            });
+        }
+
+    }
+
+    function novoEndereco() {
+        let end_2 = $('#endereco_2');
+        if (end_2[0].className == 'd-none') {
+            end_2.removeClass('d-none');
+        } else {
+            $('#endereco_3').removeClass('d-none')
+            $('#btn_adicionar_endereco').addClass('d-none')
+        }
+
+    }
+
+    //
+    document.querySelector('#form_endereco_1').addEventListener('submit', submitAjaxPessoa);
+    document.querySelector('#form_endereco_2').addEventListener('submit', submitAjaxPessoa);
+    document.querySelector('#form_endereco_3').addEventListener('submit', submitAjaxPessoa);
+
+    function submitAjaxPessoa(e) {
+        e.preventDefault();
+        let id = e.target.id.substr(-1);
+        
+        let id_endereco   = $('#id_endereco_'+id)[0].value;
+        let codigo_pessoa = $('#codigo')[0].value;
+        let nome_Endereco = $('#nome-endereco_' + id)[0].value
+        let cep           = $('#cep_' + id)[0].value
+        let logradouro    = $('#logradouro_' + id)[0].value
+        let localidade    = $('#localidade_' + id)[0].value
+        let bairro        = $('#bairro_' + id)[0].value
+        let uf            = $('#uf_' + id)[0].value
+        let complemento   = $('#complemento_' + id)[0].value
+        let numero        = $('#numero_' + id)[0].value
+
+
+    $.ajax({
+     url : "/cadastrarEndereco",
+     type : 'post',
+     data : {
+        endereco_item : id,
+        id_endereco   : id_endereco ,
+        codigo_pessoa : codigo_pessoa ,
+        nome_Endereco : nome_Endereco,
+        cep           : cep,
+        logadouro     : logradouro,
+        localidade    : localidade,
+        bairro        : bairro,
+        uf            : uf,
+        complemento   : complemento,
+        numero        : numero
+     },
+     beforeSend : function(){
+          //$("#resultado").html("ENVIANDO...");
+     }
+    })
+    .done(function(msg){
+        $('#id_endereco_'+id)[0].value = msg
+       
+        //mensagem de dados salvo com sucesso
+        Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: 'Endereço cadastrado',
+        showConfirmButton: false,
+        timer: 1500
+        })
+    })
+    .fail(function(jqXHR, textStatus, msg){
+        alert(msg);
+    });
+
+
+    }
+</script>
